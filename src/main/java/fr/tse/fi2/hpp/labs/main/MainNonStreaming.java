@@ -12,6 +12,7 @@ import fr.tse.fi2.hpp.labs.beans.measure.QueryProcessorMeasure;
 import fr.tse.fi2.hpp.labs.dispatcher.LoadFirstDispatcher;
 import fr.tse.fi2.hpp.labs.queries.AbstractQueryProcessor;
 import fr.tse.fi2.hpp.labs.queries.impl.SimpleQuerySumEvent;
+import fr.tse.fi2.hpp.labs.queries.impl.lab1_zunzunwang.AverageQuery;
 import fr.tse.fi2.hpp.labs.queries.impl.lab1_zunzunwang.SumQuery;
 
 /**
@@ -43,7 +44,7 @@ public class MainNonStreaming {
 		List<AbstractQueryProcessor> processors = new ArrayList<>();
 		// Add you query processor here
 		
-		processors.add(new SumQuery(measure));//我们加入的第一句话
+		processors.add(new AverageQuery(measure));//我们加入的第一句话
 		// Register query processors
 		for (AbstractQueryProcessor queryProcessor : processors) {
 			dispatch.registerQueryProcessor(queryProcessor);
