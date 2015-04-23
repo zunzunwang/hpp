@@ -17,6 +17,7 @@ import fr.tse.fi2.hpp.labs.beans.GridPoint;
 import fr.tse.fi2.hpp.labs.beans.Route;
 import fr.tse.fi2.hpp.labs.beans.measure.QueryProcessorMeasure;
 import fr.tse.fi2.hpp.labs.dispatcher.StreamingDispatcher;
+import fr.tse.fi2.hpp.labs.queries.impl.lab1_zunzunwang.WriteResultat;
 
 /**
  * Every query must extend this class that provides basic functionalities such
@@ -47,11 +48,18 @@ public abstract class AbstractQueryProcessor implements Runnable {
 	/**
 	 * Writer to write the output of the queries
 	 */
-	private BufferedWriter outputWriter;
+//	private BufferedWriter outputWriter;//往内存中写入内容
 	/**
 	 * Internal queue of events
 	 */
 	public final BlockingQueue<DebsRecord> eventqueue;
+	
+	
+	
+	/**
+	 * Internal queue of result
+	 */
+	public final BlockingQueue<String> resultqueue;
 	/**
 	 * Global measurement
 	 */
@@ -60,6 +68,8 @@ public abstract class AbstractQueryProcessor implements Runnable {
 	 * For synchronisation purpose
 	 */
 	private CountDownLatch latch;
+	
+	private Thread thread;
 
 	/**
 	 * Default constructor. Initialize event queue and writer
@@ -69,22 +79,28 @@ public abstract class AbstractQueryProcessor implements Runnable {
 		this.measure = measure;
 		// Initialize queue
 		this.eventqueue = new LinkedBlockingQueue<>();
+		this.resultqueue = new LinkedBlockingQueue<>();
+		WriteResultat result = new WriteResultat(id, resultqueue);
+		this.thread= new Thread(result);
+		thread.setName("QPWriter"+id);
+		thread.start();
 
-		// Initialize writer
-		try {
+		// Initialize writer是往内存中写入 现在写入到了writeResultat中
+		/*try {
 			outputWriter = new BufferedWriter(new FileWriter(new File(
 					"result/query" + id + ".txt")));
 		} catch (IOException e) {
 			logger.error("Cannot open output file for " + id, e);
 			System.exit(-1);
-		}
+		}*/
+		
 	}
 
 	public void setLatch(CountDownLatch latch) {
 		this.latch = latch;
 	}
 
-	@Override
+	@Override//run函数实际是每个进程中的要进行的程序
 	public void run() {
 		logger.info("Starting query processor " + id);
 		// Notify beginning of processing
@@ -192,32 +208,46 @@ public abstract class AbstractQueryProcessor implements Runnable {
 	 *            the line to write as an answer
 	 */
 	protected void writeLine(String line) {
-		try {
+		/*try {
 			outputWriter.write(line);
 			outputWriter.newLine();
 		} catch (IOException e) {
 			logger.error("Could not write new line for query processor " + id
 					+ ", line content " + line, e);
 		}
-
+*/
 	}
+	
+	
+	
+	
 
 	/**
 	 * Poison pill has been received, close output
 	 */
 	protected void finish() {
 		// Close writer
-		try {
+	/*	try {
 			outputWriter.flush();
 			outputWriter.close();
 		} catch (IOException e) {
 			logger.error("Cannot property close the output file for query "
 					+ id, e);
-		}
+		}*/
 		// Notify finish time
 		measure.notifyFinish(this.id);
+		resultqueue.add("DIE!!!");
+		try {
+			this.thread.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		// Decrease latch count
 		latch.countDown();
+
+
 	}
 
 }
