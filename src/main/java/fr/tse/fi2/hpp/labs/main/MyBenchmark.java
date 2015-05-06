@@ -7,24 +7,15 @@ import fr.tse.fi2.hpp.labs.queries.AbstractQueryProcessor;
 import fr.tse.fi2.hpp.labs.queries.impl.lab4_zunzunwang.RouteMembershipProcessor;
 
 import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Fork;
 import org.openjdk.jmh.annotations.Measurement;
-import org.openjdk.jmh.annotations.OutputTimeUnit;
-import org.openjdk.jmh.annotations.Param;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
-
-import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
@@ -60,9 +51,6 @@ public class MyBenchmark {
 	 * suivant la valeur de <code>n</code>.
 	 */
 	public void init(){
-		final Logger logger = LoggerFactory
-				.getLogger(MainNonStreaming.class);
-
 		/**
 		 * @param args
 		 * @throws IOException
@@ -119,8 +107,7 @@ public class MyBenchmark {
 			float y2=(float)40.752502;
 			String l1="6BA29E9A69B10F218C1509BEDD7410C2";
 			*/
-			DebsRecord record;
-			record = RouteMembershipProcessor.getRecord();
+			recordTest = RouteMembershipProcessor.getRecord();
 			
 
 
@@ -141,22 +128,7 @@ public class MyBenchmark {
     	
     	
     }
-/*
-    @Benchmark
-    public float testMethod2() {
-        // This is a demo/sample template for building your JMH benchmarks. Edit as needed.
-        // Put your benchmark code here.
-    	long sum=0;
-    	for (Integer integer:list){
-    		sum += integer;
-    		}
-    	float ave= sum / n;
-    	return ave;
-    
-    	
-    	
-    }
-    */
+
 
     public static void main(String[] args) throws RunnerException {
         Options opt = new OptionsBuilder()

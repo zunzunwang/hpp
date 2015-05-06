@@ -14,6 +14,7 @@ import fr.tse.fi2.hpp.labs.queries.AbstractQueryProcessor;
 import fr.tse.fi2.hpp.labs.queries.impl.IncrementalAverage;
 import fr.tse.fi2.hpp.labs.queries.impl.SimpleQuerySumEvent;
 import fr.tse.fi2.hpp.labs.queries.impl.lab1_zunzunwang.AverageQuery;
+import fr.tse.fi2.hpp.labs.queries.impl.lab4_zunzunwang.RouteMembershipProcessor;
 
 /**
  * Main class of the program. Register your new queries here
@@ -43,8 +44,9 @@ public class MainStreaming {
 		List<AbstractQueryProcessor> processors = new ArrayList<>();
 		// Add you query processor here
 		
-		processors.add(new AverageQuery(measure));
-		processors.add(new IncrementalAverage(measure));//我们加入了不同的线程
+//		processors.add(new AverageQuery(measure));
+//		processors.add(new IncrementalAverage(measure));//我们加入了不同的线程
+		processors.add(new RouteMembershipProcessor(measure));
 
 		// Register query processors
 		for (AbstractQueryProcessor queryProcessor : processors) {
