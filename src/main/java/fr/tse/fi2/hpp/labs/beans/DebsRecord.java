@@ -29,6 +29,7 @@ package fr.tse.fi2.hpp.labs.beans;
  */
 public class DebsRecord {
 
+
 	/** an md5sum of the identifier of the taxi - vehicle bound. */
 	final String medallion;
 
