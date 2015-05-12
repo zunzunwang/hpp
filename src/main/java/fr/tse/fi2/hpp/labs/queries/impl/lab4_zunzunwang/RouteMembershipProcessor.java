@@ -23,6 +23,8 @@ public class RouteMembershipProcessor extends AbstractQueryProcessor {
 	private static ArrayList<DebsRecord> ListeRoute = new ArrayList<DebsRecord>();
 	private static DebsRecord recordTest;
 	private int compte=0;
+	// list <Debsrecord> recs =null
+	
 	
 	
 
@@ -34,6 +36,8 @@ public class RouteMembershipProcessor extends AbstractQueryProcessor {
 	@Override
 	protected void process(DebsRecord record) {
 		// TODO Auto-generated method stub	
+		
+		
 
 			ListeRoute.add(record);
 			compte++;
@@ -45,13 +49,21 @@ public class RouteMembershipProcessor extends AbstractQueryProcessor {
 		return recordTest;
 	}
 	
+	
+	/**
+	 * check if is this route
+	 * @param record
+	 * @return
+	 */
+	
 	public static boolean checkroute(DebsRecord record)
-	{
+	{/*for(Debsrecord debrecord :recs))
+	 */
 		for(int i=0;i<ListeRoute.size();i++){
-			if((record.getPickup_longitude()== ListeRoute.get(i).getPickup_longitude())
-			   && (record.getPickup_latitude()== ListeRoute.get(i).getPickup_latitude())
-			   &&(record.getDropoff_longitude()== ListeRoute.get(i).getDropoff_longitude())
-			   && (record.getDropoff_latitude()== ListeRoute.get(i).getDropoff_latitude())
+			if((record.getPickup_longitude() == ListeRoute.get(i).getPickup_longitude())
+			   && (record.getPickup_latitude() == ListeRoute.get(i).getPickup_latitude())
+			   &&(record.getDropoff_longitude() == ListeRoute.get(i).getDropoff_longitude())
+			   && (record.getDropoff_latitude() == ListeRoute.get(i).getDropoff_latitude())
 			   &&(ListeRoute.get(i).getHack_license().equals(record.getHack_license()))) 
 			{
 				return true;

@@ -18,6 +18,7 @@ import fr.tse.fi2.hpp.labs.queries.impl.lab1_zunzunwang.AverageQuery;
 import fr.tse.fi2.hpp.labs.queries.impl.lab1_zunzunwang.StupidAveragePrice;
 import fr.tse.fi2.hpp.labs.queries.impl.lab1_zunzunwang.SumQuery;
 import fr.tse.fi2.hpp.labs.queries.impl.lab4_zunzunwang.RouteMembershipProcessor;
+import fr.tse.fi2.hpp.labs.queries.impl.lab4_zunzunwang.SimpleBloomFilter;
 
 /**
  * Main class of the program. Register your new queries here
@@ -29,6 +30,8 @@ import fr.tse.fi2.hpp.labs.queries.impl.lab4_zunzunwang.RouteMembershipProcessor
  * 
  */
 public class MainNonStreaming {
+	
+	static String recordTest=null;
 
 	final static Logger logger = LoggerFactory
 			.getLogger(MainNonStreaming.class);
@@ -54,8 +57,11 @@ public class MainNonStreaming {
 //		processors.add(new StupidAveragePrice(measure));
 //		processors.add(new AverageQuery(measure));
 //		processors.add(new IncrementalAverage(measure));//我们加入了不同的线程
-		processors.add(new RouteMembershipProcessor(measure));
-
+//		processors.add(new RouteMembershipProcessor(measure));
+		processors.add(new SimpleBloomFilter(measure));
+		
+		
+		
 		// Register query processors
 		for (AbstractQueryProcessor queryProcessor : processors) {
 			dispatch.registerQueryProcessor(queryProcessor);
@@ -90,10 +96,12 @@ public class MainNonStreaming {
 		float y2=(float)40.752502;
 		String l1="6BA29E9A69B10F218C1509BEDD7410C2";
 		*/
-		DebsRecord record;
-		record = RouteMembershipProcessor.getRecord();
+//		DebsRecord record;
+//		record = RouteMembershipProcessor.getRecord();
 		
-		System.out.print("recherche de route :" + RouteMembershipProcessor.checkroute(record));
+//		System.out.print("recherche de route :" + RouteMembershipProcessor.checkroute(record));
+		recordTest = SimpleBloomFilter.getRecord();
+		System.out.print("recherche de route :" + SimpleBloomFilter.contains(recordTest));
 
 
 	}

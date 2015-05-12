@@ -5,6 +5,7 @@ import fr.tse.fi2.hpp.labs.beans.measure.QueryProcessorMeasure;
 import fr.tse.fi2.hpp.labs.dispatcher.LoadFirstDispatcher;
 import fr.tse.fi2.hpp.labs.queries.AbstractQueryProcessor;
 import fr.tse.fi2.hpp.labs.queries.impl.lab4_zunzunwang.RouteMembershipProcessor;
+import fr.tse.fi2.hpp.labs.queries.impl.lab4_zunzunwang.SimpleBloomFilter;
 
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Fork;
@@ -16,6 +17,7 @@ import org.openjdk.jmh.annotations.Warmup;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
+
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
@@ -36,9 +38,12 @@ import org.slf4j.LoggerFactory;
 @Measurement(iterations = 5)
 @Warmup(iterations = 5)
 @State(Scope.Benchmark)
+//@State(Scope.Thread)
 
 public class MyBenchmark {
-	private DebsRecord recordTest;
+//	private DebsRecord recordTest;//pour 1 version
+	private String recordTest;
+	
 	final static Logger logger = LoggerFactory
 			.getLogger(MainNonStreaming.class);
 	
@@ -58,11 +63,12 @@ public class MyBenchmark {
 			// Init query time measure
 			QueryProcessorMeasure measure = new QueryProcessorMeasure();
 			// Init dispatcher and load everything
-//			LoadFirstDispatcher dispatch = new LoadFirstDispatcher(
-//					"src/main/resources/data/1000Records.csv");
-			
 			LoadFirstDispatcher dispatch = new LoadFirstDispatcher(
-					"src/main/resources/data/sorted_data.csv");
+					"src/main/resources/data/1000Records.csv");
+			
+			
+//			LoadFirstDispatcher dispatch = new LoadFirstDispatcher(
+	//				"src/main/resources/data/sorted_data.csv");
 			logger.info("Finished parsing");
 			// Query processors
 			List<AbstractQueryProcessor> processors = new ArrayList<>();
@@ -71,7 +77,8 @@ public class MyBenchmark {
 //			processors.add(new StupidAveragePrice(measure));
 //			processors.add(new AverageQuery(measure));
 //			processors.add(new IncrementalAverage(measure));//我们加入了不同的线程
-			processors.add(new RouteMembershipProcessor(measure));
+//			processors.add(new RouteMembershipProcessor(measure));
+			processors.add(new SimpleBloomFilter(measure));
 
 			// Register query processors
 			for (AbstractQueryProcessor queryProcessor : processors) {
@@ -107,7 +114,8 @@ public class MyBenchmark {
 			float y2=(float)40.752502;
 			String l1="6BA29E9A69B10F218C1509BEDD7410C2";
 			*/
-			recordTest = RouteMembershipProcessor.getRecord();
+//			recordTest= RouteMembershipProcessor.getRecord();
+			recordTest = SimpleBloomFilter.getRecord();
 			
 
 
@@ -124,7 +132,8 @@ public class MyBenchmark {
     	 * 
     	 * 运行的时候是先运行 mvn clean install ensuite 
     	 */
-    	System.out.println("Route find : " + RouteMembershipProcessor.checkroute(recordTest));
+ //   	System.out.println("Route find : " + RouteMembershipProcessor.checkroute(recordTest));
+    	System.out.println("Route find : " + SimpleBloomFilter.contains(recordTest));
     	
     	
     }
