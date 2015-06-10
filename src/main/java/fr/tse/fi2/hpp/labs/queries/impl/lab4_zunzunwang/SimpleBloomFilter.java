@@ -14,9 +14,9 @@ import java.util.BitSet;
 public class SimpleBloomFilter extends AbstractQueryProcessor{
 
   //DEFAULT_SIZE为2的25次方
-  private static final int DEFAULT_SIZE = 14378;//初始化了m的大小
-  /* 不同哈希函数的种子，一般应取质数,seeds数据共有10个值，则代表采用7种不同的HASH算法 */
-  private static final int[] seeds = new int[] { 5, 7, 11, 13, 31, 37, 61, 71, 79};
+  private static final int DEFAULT_SIZE = 2 << 24;//初始化了m的大小
+  /* 不同哈希函数的种子，一般应取质数,seeds数据共有7个值，则代表采用7种不同的HASH算法 */
+  private static final int[] seeds = new int[] { 5, 7, 11, 13, 31, 37, 61 };
   //BitSet实际是由“二进制位”构成的一个Vector。假如希望高效率地保存大量“开－关”信息，就应使用BitSet.
   //BitSet的最小长度是一个长整数（Long）的长度：64位
   private static BitSet bits = new BitSet(DEFAULT_SIZE);//建立了一个bitset组为了存储

@@ -157,7 +157,7 @@ public abstract class AbstractQueryProcessor implements Runnable {
 	 * @return The lat/long converted into grid coordinates
 	 */
 	private GridPoint convert(float lat1, float long1) {
-		return new GridPoint(cellX(lat1), cellY(long1));
+		return new GridPoint(cellX(long1), cellY(lat1));
 	}
 
 	/**
@@ -170,7 +170,7 @@ public abstract class AbstractQueryProcessor implements Runnable {
 
 		// double x=0;
 		double x_0 = -74.913585;
-		double delta_x = 0.005986 / 2;
+		double delta_x = 0.005986;// / 2;
 
 		// double cell_x;
 		Double cell_x = 1 + Math.floor(((x - x_0) / delta_x) + 0.5);
@@ -187,7 +187,7 @@ public abstract class AbstractQueryProcessor implements Runnable {
 	private int cellY(double y) {
 
 		double y_0 = 41.474937;
-		double delta_y = 0.004491556 / 2;
+		double delta_y = 0.004491556;// / 2;
 
 		Double cell_y = 1 + Math.floor(((y_0 - y) / delta_y) + 0.5);
 
@@ -216,6 +216,7 @@ public abstract class AbstractQueryProcessor implements Runnable {
 					+ ", line content " + line, e);
 		}
 */
+		System.out.println(line);
 	}
 	
 	
