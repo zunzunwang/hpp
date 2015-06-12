@@ -20,6 +20,7 @@ import fr.tse.fi2.hpp.labs.queries.impl.lab1_zunzunwang.SumQuery;
 import fr.tse.fi2.hpp.labs.queries.impl.lab4_zunzunwang.RouteMembershipProcessor;
 import fr.tse.fi2.hpp.labs.queries.impl.lab4_zunzunwang.SimpleBloomFilter;
 import fr.tse.fi2.hpp.labs.queries.impl.projet.Query1;
+import fr.tse.fi2.hpp.labs.queries.impl.projet.RoutesFrequente;
 
 /**
  * Main class of the program. Register your new queries here
@@ -64,7 +65,9 @@ public class MainNonStreaming {
 //		processors.add(new IncrementalAverage(measure));//我们加入了不同的线程
 //		processors.add(new RouteMembershipProcessor(measure));
 //		processors.add(new SimpleBloomFilter(measure));
-		processors.add(new Query1(measure));
+//		processors.add(new Query1(measure));
+		processors.add(new RoutesFrequente(measure));
+		
 
 		
 		

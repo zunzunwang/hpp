@@ -4,6 +4,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -14,6 +16,7 @@ import org.slf4j.LoggerFactory;
 
 import fr.tse.fi2.hpp.labs.beans.DebsRecord;
 import fr.tse.fi2.hpp.labs.beans.GridPoint;
+import fr.tse.fi2.hpp.labs.beans.NewRecord;
 import fr.tse.fi2.hpp.labs.beans.Route;
 import fr.tse.fi2.hpp.labs.beans.measure.QueryProcessorMeasure;
 import fr.tse.fi2.hpp.labs.dispatcher.StreamingDispatcher;
@@ -149,6 +152,29 @@ public abstract class AbstractQueryProcessor implements Runnable {
 		GridPoint dropoff = convert(lat2, long2);
 		return new Route(pickup, dropoff);
 	}
+	
+	
+	protected NewRecord convertRecordToNewRoute(DebsRecord record) {
+		NewRecord newRecord ; 
+		// the time
+		long pickup_datatime = record.getPickup_datetime();
+		long dropoff_datatime = record.getDropoff_datetime();
+		// Convert pickup coordinates of new record into cell
+		float long1 = record.getPickup_longitude();
+		float lat1 = record.getPickup_latitude();
+		// Convert pickup coordinates of new record into cell
+		float long2 =record.getDropoff_longitude();
+		float lat2 =record.getDropoff_latitude();
+		//the times
+		int times = 0;
+		GridPoint pickup = convert(lat1, long1);
+		GridPoint dropoff = convert(lat2, long2);
+		newRecord = new NewRecord(pickup_datatime, dropoff_datatime, pickup, dropoff, times);
+		return newRecord;
+
+	}
+
+
 
 	/**
 	 * 
@@ -250,5 +276,8 @@ public abstract class AbstractQueryProcessor implements Runnable {
 
 
 	}
+	
+
+
 
 }
