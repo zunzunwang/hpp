@@ -9,10 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 import com.google.common.collect.HashMultiset;
-import com.google.common.collect.ImmutableMultiset;
 import com.google.common.collect.Multiset;
-import com.google.common.collect.Multisets;
-
 import fr.tse.fi2.hpp.labs.beans.DebsRecord;
 import fr.tse.fi2.hpp.labs.beans.NewRecord;
 import fr.tse.fi2.hpp.labs.beans.Route;
