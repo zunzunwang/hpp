@@ -19,7 +19,6 @@ import fr.tse.fi2.hpp.labs.queries.impl.lab1_zunzunwang.StupidAveragePrice;
 import fr.tse.fi2.hpp.labs.queries.impl.lab1_zunzunwang.SumQuery;
 import fr.tse.fi2.hpp.labs.queries.impl.lab4_zunzunwang.RouteMembershipProcessor;
 import fr.tse.fi2.hpp.labs.queries.impl.lab4_zunzunwang.SimpleBloomFilter;
-import fr.tse.fi2.hpp.labs.queries.impl.projet.Query1;
 import fr.tse.fi2.hpp.labs.queries.impl.projet.RoutesFrequente;
 
 /**

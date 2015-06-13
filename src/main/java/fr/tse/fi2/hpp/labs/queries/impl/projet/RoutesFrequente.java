@@ -15,7 +15,6 @@ import fr.tse.fi2.hpp.labs.beans.NewRecord;
 import fr.tse.fi2.hpp.labs.beans.Route;
 import fr.tse.fi2.hpp.labs.beans.measure.QueryProcessorMeasure;
 import fr.tse.fi2.hpp.labs.queries.AbstractQueryProcessor;
-import fr.tse.fi2.hpp.labs.queries.impl.lab5_utils_zunzunwang.InsertSort;
 
 public class RoutesFrequente extends AbstractQueryProcessor {
     
@@ -24,7 +23,6 @@ public class RoutesFrequente extends AbstractQueryProcessor {
 	private List<NewRecord> newRecordList;
 	private List<NewRecord> newRecordList2;
 	private Multiset<Integer> timesList;
-	private List<NewRecord> listResultat;
 
 
 	private String resultat;
@@ -45,7 +43,6 @@ public class RoutesFrequente extends AbstractQueryProcessor {
 		this.newRecordList = new LinkedList<NewRecord>();
 		this.newRecordList2 = new LinkedList<NewRecord>();
 		this.timesList = HashMultiset.create();
-		this.listResultat = new LinkedList<NewRecord>();
  		recordList.add(record);
 
 		
@@ -159,17 +156,7 @@ public class RoutesFrequente extends AbstractQueryProcessor {
 						+"  get drop off "+newrecord.getDropoff().getX()+newrecord.getDropoff().getY());
 			}
 */							
-				
-			Set<Integer> timesList2 = new HashSet<Integer>();
-			timesList2.addAll(timesList);
-			
-			int[] timesList3 = new int[timesList2.size()] ;		
-			int a=0;
-			for(Integer index: timesList2){
-				timesList3[a]=index;
-				a++;
-				}
-			timesList3=InsertSort.InsertSort(timesList3);			
+						
 			
 			//Ajouter les routes de listRoute à resultat, si moins de 10, ajouter 'NULL'; 
 			int i=1;
