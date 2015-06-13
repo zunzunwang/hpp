@@ -84,5 +84,26 @@ public class Route {
 	private boolean valid(int x, int gridsize) {
 		return x > 0 && x <= gridsize;
 	}
+	
+	public boolean equals(Object o)   
+    {   
+        if (this == o)   
+        {   
+            return true;   
+        }   
+        if (o.getClass() == Route.class)   
+        {   
+        	Route n = (Route)o;
+            return ((n.getPickup().equals(pickup))&&(n.getDropoff().equals(dropoff)));   
+        }   
+        return false;   
+    }   
+       
+    // 根据 xy 计算 Name 对象的 hashCode() 返回值  
+    public int hashCode()   
+    {   
+        return (pickup.hashCode()+dropoff.hashCode());   
+    }  
+	
 
 }

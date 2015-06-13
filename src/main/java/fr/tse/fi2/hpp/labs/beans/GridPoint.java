@@ -27,5 +27,26 @@ public class GridPoint {
 	public void setY(int y) {
 		this.y = y;
 	}
+	
+	public boolean equals(Object o)   
+    {   
+        if (this == o)   
+        {   
+            return true;   
+        }   
+        if (o.getClass() == GridPoint.class)   
+        {   
+        	GridPoint n = (GridPoint)o;
+            return ((n.x==x)&&(n.y==y));   
+        }   
+        return false;   
+    }   
+       
+    // 根据 xy 计算 Name 对象的 hashCode() 返回值  
+    public int hashCode()   
+    {   
+        return (x+y);   
+    }  
+	
 
 }
