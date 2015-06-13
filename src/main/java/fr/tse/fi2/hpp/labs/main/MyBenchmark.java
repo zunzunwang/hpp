@@ -29,8 +29,6 @@ import org.slf4j.LoggerFactory;
 //@BenchmarkMode(Mode.AverageTime)
 //@OutputTimeUnit(TimeUnit.NANOSECONDS)
 //@Warmup(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
-
-
 //@Measurement(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
 
 
