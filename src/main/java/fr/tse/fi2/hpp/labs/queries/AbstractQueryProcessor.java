@@ -1,11 +1,5 @@
 package fr.tse.fi2.hpp.labs.queries;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -243,6 +237,7 @@ public abstract class AbstractQueryProcessor implements Runnable {
 		}
 */
 		System.out.println(line);
+		
 	}
 	
 	
