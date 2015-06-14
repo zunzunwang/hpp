@@ -3,7 +3,13 @@ package fr.tse.fi2.hpp.labs.queries.impl.projet;
 import java.util.List;
 
 import fr.tse.fi2.hpp.labs.beans.NewRecord;
-
+/**
+ * compatateur pour comparer la fois pour chaque route.
+ * Après trire la list mise en ordre de haut à bas par le frequence .
+ *    
+ * @author zunzunwang
+ *
+ */
 public class ComparateurList {
 	public ComparateurList(){
 		
