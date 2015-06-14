@@ -13,7 +13,7 @@ import fr.tse.fi2.hpp.labs.beans.GridPoint;
 import fr.tse.fi2.hpp.labs.beans.NewRecord;
 import fr.tse.fi2.hpp.labs.beans.Route;
 import fr.tse.fi2.hpp.labs.beans.measure.QueryProcessorMeasure;
-import fr.tse.fi2.hpp.labs.dispatcher.StreamingDispatcher;
+import fr.tse.fi2.hpp.labs.dispatcher.*;
 import fr.tse.fi2.hpp.labs.queries.impl.lab1_zunzunwang.WriteResultat;
 
 /**
@@ -237,6 +237,7 @@ public abstract class AbstractQueryProcessor implements Runnable {
 		}
 */
 		System.out.println(line);
+		resultqueue.add(line);
 		
 	}
 	

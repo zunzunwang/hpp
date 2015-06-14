@@ -27,7 +27,7 @@ public class GridPoint {
 	public void setY(int y) {
 		this.y = y;
 	}
-	
+	@Override
 	public boolean equals(Object o)   
     {   
         if (this == o)   
@@ -41,11 +41,15 @@ public class GridPoint {
         }   
         return false;   
     }   
-       
+	@Override   
     // 根据 xy 计算 Name 对象的 hashCode() 返回值  
     public int hashCode()   
     {   
-        return (x+y);   
+		final int prime = 233;
+		int result = 1;
+		result = prime * result + x;
+		result = prime * result + y;
+        return result;   
     }  
 	
 

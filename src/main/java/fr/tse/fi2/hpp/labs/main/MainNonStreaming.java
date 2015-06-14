@@ -19,6 +19,7 @@ import fr.tse.fi2.hpp.labs.queries.impl.lab1_zunzunwang.StupidAveragePrice;
 import fr.tse.fi2.hpp.labs.queries.impl.lab1_zunzunwang.SumQuery;
 import fr.tse.fi2.hpp.labs.queries.impl.lab4_zunzunwang.RouteMembershipProcessor;
 import fr.tse.fi2.hpp.labs.queries.impl.lab4_zunzunwang.SimpleBloomFilter;
+import fr.tse.fi2.hpp.labs.queries.impl.projet.ProfitableAreas;
 import fr.tse.fi2.hpp.labs.queries.impl.projet.RoutesFrequente;
 
 /**
@@ -65,7 +66,9 @@ public class MainNonStreaming {
 //		processors.add(new RouteMembershipProcessor(measure));
 //		processors.add(new SimpleBloomFilter(measure));
 //		processors.add(new Query1(measure));
-		processors.add(new RoutesFrequente(measure));
+//		processors.add(new RoutesFrequente(measure));
+		processors.add(new ProfitableAreas(measure));
+
 		
 
 		

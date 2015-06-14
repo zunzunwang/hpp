@@ -1,3 +1,4 @@
+
 package fr.tse.fi2.hpp.labs.queries.impl.projet;
 
 import java.io.IOException;
@@ -30,10 +31,10 @@ import fr.tse.fi2.hpp.labs.queries.AbstractQueryProcessor;
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 
-public class BenchmarksRoutesFrequente {
+public class BenchmarksProfitableAreas {
 
 
-	   final static Logger logger = LoggerFactory.getLogger(BenchmarksRoutesFrequente.class);
+	   final static Logger logger = LoggerFactory.getLogger(BenchmarksProfitableAreas.class);
 	   
 	    @Benchmark
 	    @BenchmarkMode(Mode.AverageTime)
@@ -48,8 +49,8 @@ public class BenchmarksRoutesFrequente {
 			// Query processors
 			List<AbstractQueryProcessor> processors = new ArrayList<>();
 			// Add you query processor here
-			RoutesFrequente RF = new  RoutesFrequente(measure);
-			processors.add(RF);
+			ProfitableAreas PA = new  ProfitableAreas(measure);
+			processors.add(PA);
 			// Register query processors
 			for (AbstractQueryProcessor queryProcessor : processors) {
 				dispatch.registerQueryProcessor(queryProcessor);
@@ -83,3 +84,4 @@ public class BenchmarksRoutesFrequente {
 	    }
 
 }
+

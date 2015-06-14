@@ -84,7 +84,7 @@ public class Route {
 	private boolean valid(int x, int gridsize) {
 		return x > 0 && x <= gridsize;
 	}
-	
+	@Override
 	public boolean equals(Object o)   
     {   
         if (this == o)   
@@ -98,11 +98,15 @@ public class Route {
         }   
         return false;   
     }   
-       
+	@Override   
     // 根据 xy 计算 Name 对象的 hashCode() 返回值  
     public int hashCode()   
-    {   
-        return (pickup.hashCode()+dropoff.hashCode());   
+    { 
+		final int prime = 233;
+		int result = 1;
+		result = prime * result + ((pickup == null) ? 0 : pickup.hashCode());
+		result = prime * result + ((dropoff == null) ? 0 : dropoff.hashCode());
+        return result;   
     }  
 	
 

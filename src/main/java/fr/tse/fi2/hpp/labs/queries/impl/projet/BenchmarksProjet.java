@@ -1,3 +1,4 @@
+
 package fr.tse.fi2.hpp.labs.queries.impl.projet;
 
 import java.io.IOException;
@@ -43,15 +44,15 @@ public class BenchmarksProjet {
 			QueryProcessorMeasure measure = new QueryProcessorMeasure();
 			// Init dispatcher
 			StreamingDispatcher dispatch = new StreamingDispatcher(
-					"src/main/resources/data/sorted_data.csv");
+					"src/main/resources/data/1000Records.csv");
 
 			// Query processors
 			List<AbstractQueryProcessor> processors = new ArrayList<>();
 			// Add you query processor here
 			RoutesFrequente FR = new  RoutesFrequente(measure);
-		//	MostProfitableAreas MPA = new  MostProfitableAreas(measure);
+			ProfitableAreas PA = new  ProfitableAreas(measure);
+			processors.add(PA);
 			processors.add(FR);
-		//	processors.add(MPA);
 			// Register query processors
 			for (AbstractQueryProcessor queryProcessor : processors) {
 				dispatch.registerQueryProcessor(queryProcessor);
