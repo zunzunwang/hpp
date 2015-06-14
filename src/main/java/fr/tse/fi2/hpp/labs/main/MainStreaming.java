@@ -11,9 +11,9 @@ import org.slf4j.LoggerFactory;
 import fr.tse.fi2.hpp.labs.beans.measure.QueryProcessorMeasure;
 import fr.tse.fi2.hpp.labs.dispatcher.StreamingDispatcher;
 import fr.tse.fi2.hpp.labs.queries.AbstractQueryProcessor;
-import fr.tse.fi2.hpp.labs.queries.impl.IncrementalAverage;
 import fr.tse.fi2.hpp.labs.queries.impl.SimpleQuerySumEvent;
 import fr.tse.fi2.hpp.labs.queries.impl.lab1_zunzunwang.AverageQuery;
+import fr.tse.fi2.hpp.labs.queries.impl.lab1_zunzunwang.IncrementalAverage;
 import fr.tse.fi2.hpp.labs.queries.impl.lab4_zunzunwang.RouteMembershipProcessor;
 
 /**

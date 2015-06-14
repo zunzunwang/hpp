@@ -135,11 +135,12 @@ public class ProfitableAreas extends AbstractQueryProcessor {
 				for(int i=0;i<fenetreDrop30min.size();i++){
 					listLicence.add(fenetreDrop30min.get(i).getHack_license());					
 				}
-				/***验证表中是否有相同的元素***/
+				/***vérifier est ce qu'il y a les même élémens dans la liste ***/
 /*				for(String string:listLicence){
 					System.out.println(string);
 				}
 */				
+				
 				for(Areas area : tabArea){//pour la même place
 					for(String string:listLicence){
 						int time=0;
@@ -162,7 +163,7 @@ public class ProfitableAreas extends AbstractQueryProcessor {
 				
 				System.out.println(fenetrePick30min.size());
 				for(int i=0;i<tabArea.size();i++){
-					System.out.println("unit : " + tabArea.get(i).getunit() + 
+					System.out.println("cell : " + tabArea.get(i).getunit() + 
 										" Taxi Empty : " + tabArea.get(i).getNbTaxisEmpty() + " Median profit : " + tabArea.get(i).mediane.getMediane() + " Profitability : "  + tabArea.get(i).getProfitability());
 				}
 		

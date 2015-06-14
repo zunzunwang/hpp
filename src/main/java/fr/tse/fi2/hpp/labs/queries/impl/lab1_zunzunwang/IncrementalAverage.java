@@ -1,4 +1,4 @@
-package fr.tse.fi2.hpp.labs.queries.impl;
+package fr.tse.fi2.hpp.labs.queries.impl.lab1_zunzunwang;
 
 import fr.tse.fi2.hpp.labs.beans.DebsRecord;
 import fr.tse.fi2.hpp.labs.beans.measure.QueryProcessorMeasure;
