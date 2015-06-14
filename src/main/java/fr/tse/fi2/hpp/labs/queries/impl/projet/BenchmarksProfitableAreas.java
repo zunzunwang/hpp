@@ -47,7 +47,7 @@ public class BenchmarksProfitableAreas {
 			// Query processors
 			List<AbstractQueryProcessor> processors = new ArrayList<>();
 			// Add you query processor here
-			ProfitableAreas PA = new  ProfitableAreas(measure);
+			AreasProfitable PA = new  AreasProfitable(measure);
 			processors.add(PA);
 			// Register query processors
 			for (AbstractQueryProcessor queryProcessor : processors) {

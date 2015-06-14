@@ -167,6 +167,26 @@ public abstract class AbstractQueryProcessor implements Runnable {
 		return newRecord;
 
 	}
+	
+	// Query2 et unité est 250m. 
+		protected String convertTounit(float latitude, float longitude)
+		{
+			// longueur et largeur de chaque unité.
+			double stepX = 0.005986/2;
+			double stepY = 0.004491556/2;
+			
+			// le point du début. 
+			double startX = -74.913585;
+			double startY = 41.474937;
+			
+			// la normalisation.
+			double unitX = (longitude - startX) / stepX;
+			double unitY = (startY - latitude) / stepY;
+			Integer X = (int) (Math.round(unitX) + 1);
+			Integer Y = (int) (Math.round(unitY) + 1);
+			String result = X.toString() + "." + Y.toString();
+			return result;
+		}
 
 
 

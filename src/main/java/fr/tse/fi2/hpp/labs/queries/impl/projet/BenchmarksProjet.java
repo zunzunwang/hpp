@@ -50,7 +50,7 @@ public class BenchmarksProjet {
 			List<AbstractQueryProcessor> processors = new ArrayList<>();
 			// Add you query processor here
 			RoutesFrequente FR = new  RoutesFrequente(measure);
-			ProfitableAreas PA = new  ProfitableAreas(measure);
+			AreasProfitable PA = new  AreasProfitable(measure);
 			processors.add(PA);
 			processors.add(FR);
 			// Register query processors
