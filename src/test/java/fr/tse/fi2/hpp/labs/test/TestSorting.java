@@ -1,11 +1,12 @@
 package fr.tse.fi2.hpp.labs.test;
 
 import java.util.Arrays;
+
 import org.junit.Test;
 
-import fr.tse.fi2.hpp.labs.queries.impl.lab5_utils_zunzunwang.InsertSort;
-import fr.tse.fi2.hpp.labs.queries.impl.lab5_utils_zunzunwang.ListRandom;
-import fr.tse.fi2.hpp.labs.queries.impl.lab5_utils_zunzunwang.MergeSort;
+import fr.tse.fi2.hpp.labs.queries.impl.lab5_zunzunwang.InsertSort;
+import fr.tse.fi2.hpp.labs.queries.impl.lab5_zunzunwang.ListRandom;
+import fr.tse.fi2.hpp.labs.queries.impl.lab5_zunzunwang.MergeSort;
 
 public class TestSorting {
 	ListRandom listrandom = new ListRandom(100000);

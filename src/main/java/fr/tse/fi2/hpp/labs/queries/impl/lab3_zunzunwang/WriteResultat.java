@@ -1,4 +1,4 @@
-package fr.tse.fi2.hpp.labs.queries.impl.lab1_zunzunwang;
+package fr.tse.fi2.hpp.labs.queries.impl.lab3_zunzunwang;
 
 import java.io.BufferedWriter;
 import java.io.File;

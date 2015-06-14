@@ -1,4 +1,4 @@
-package fr.tse.fi2.hpp.labs.queries.impl.lab5_utils_zunzunwang;
+package fr.tse.fi2.hpp.labs.queries.impl.lab5_zunzunwang;
 
 import java.util.ArrayList;
 import java.util.List;

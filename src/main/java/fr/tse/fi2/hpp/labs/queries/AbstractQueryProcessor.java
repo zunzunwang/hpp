@@ -14,7 +14,7 @@ import fr.tse.fi2.hpp.labs.beans.NewRecord;
 import fr.tse.fi2.hpp.labs.beans.Route;
 import fr.tse.fi2.hpp.labs.beans.measure.QueryProcessorMeasure;
 import fr.tse.fi2.hpp.labs.dispatcher.*;
-import fr.tse.fi2.hpp.labs.queries.impl.lab1_zunzunwang.WriteResultat;
+import fr.tse.fi2.hpp.labs.queries.impl.lab3_zunzunwang.WriteResultat;
 
 /**
  * Every query must extend this class that provides basic functionalities such
