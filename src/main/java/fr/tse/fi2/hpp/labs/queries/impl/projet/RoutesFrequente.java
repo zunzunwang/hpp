@@ -219,6 +219,7 @@ public class RoutesFrequente extends AbstractQueryProcessor {
 		tempsFini = System.nanoTime();
 		delay = tempsFini - tempsCommence;
 		this.writeLine(resultat + ", " + delay);
+		
 	}
 }
 	
