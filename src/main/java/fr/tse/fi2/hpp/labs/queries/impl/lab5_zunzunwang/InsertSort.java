@@ -1,9 +1,10 @@
 package fr.tse.fi2.hpp.labs.queries.impl.lab5_zunzunwang;
 
 
+
 public class InsertSort {  
 	public static int[] InsertSort(int a[]){
-		int length=a.length; //数组长度
+		int length=a.length; //length de tableau
 		int j;				 //当前值的位置
 		int i;				 //指向j前的位置
 		int key;			 //当前要进行插入排序的值
@@ -20,14 +21,14 @@ public class InsertSort {
 		}
 		return a;
 	} 
-
+/*
 	    public static void main(String []args) {  
 	        int []c = {4, 9, 23, 1, 45, 27, 5, 2};  
 	        InsertSort(c);
 	        for(int i = 0; i < c.length; i++)  
 	            System.out.println("insertion：" + c[i]);  
 	    }
-  
+*/  
 
 
 }

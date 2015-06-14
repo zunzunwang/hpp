@@ -10,12 +10,18 @@ import java.util.Set;
 
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Multiset;
+
 import fr.tse.fi2.hpp.labs.beans.DebsRecord;
 import fr.tse.fi2.hpp.labs.beans.NewRecord;
 import fr.tse.fi2.hpp.labs.beans.Route;
 import fr.tse.fi2.hpp.labs.beans.measure.QueryProcessorMeasure;
 import fr.tse.fi2.hpp.labs.queries.AbstractQueryProcessor;
-
+import fr.tse.fi2.hpp.labs.queries.impl.lab5_zunzunwang.InsertSort;
+/**
+ * la processus Query1
+ * @author zunzunwang
+ *
+ */
 public class RoutesFrequente extends AbstractQueryProcessor {
     
 	private List<DebsRecord> recordList;
@@ -23,6 +29,7 @@ public class RoutesFrequente extends AbstractQueryProcessor {
 	private List<NewRecord> newRecordList;
 	private List<NewRecord> newRecordList2;
 	private Multiset<Integer> timesList;
+	private List<NewRecord> listResultat;
 
 
 	private String resultat;
@@ -43,6 +50,7 @@ public class RoutesFrequente extends AbstractQueryProcessor {
 		this.newRecordList = new LinkedList<NewRecord>();
 		this.newRecordList2 = new LinkedList<NewRecord>();
 		this.timesList = HashMultiset.create();
+		this.listResultat = new LinkedList<NewRecord>();
  		recordList.add(record);
 
 		
@@ -156,11 +164,39 @@ public class RoutesFrequente extends AbstractQueryProcessor {
 						+"  get drop off "+newrecord.getDropoff().getX()+newrecord.getDropoff().getY());
 			}
 */							
-						
+
+			Set<Integer> timesList = new  HashSet<Integer>();
+			timesList.clear();
+			for(NewRecord newrecord:newRecordList2){
+				timesList.add(newrecord.getTimes());				
+			}
+			int[] timesListTri = new int[timesList.size()] ;
+			int a=0;
+			for(Integer index: timesList){
+				timesListTri[a]=index;
+				a++;
+			}
+			timesListTri=InsertSort.InsertSort(timesListTri);					
+			int nAll=0;
 			
+			for(Integer index: timesListTri){
+				int n = 0;
+				for(NewRecord newRecord : newRecordList2){
+					if(index == newRecord.getTimes()){
+						n += 1;
+						nAll += 1;
+					}
+				}
+				ComparateurList comList= new ComparateurList();
+				listResultat = comList.freshList(newRecordList2, n, nAll);
+				if(nAll >= 10){
+					break;
+				}
+			}
+						
 			//Ajouter les routes de listRoute à resultat, si moins de 10, ajouter 'NULL'; 
 			int i=1;
-			for(NewRecord newRecord: newRecordList2 ){
+			for(NewRecord newRecord: listResultat ){
 
  				if(i<11){
 					
