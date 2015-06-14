@@ -45,7 +45,7 @@ public abstract class AbstractQueryProcessor implements Runnable {
 	/**
 	 * Writer to write the output of the queries
 	 */
-//	private BufferedWriter outputWriter;//往内存中写入内容
+//	private BufferedWriter outputWriter;//écrire sous buffer
 	/**
 	 * Internal queue of events
 	 */
@@ -82,7 +82,7 @@ public abstract class AbstractQueryProcessor implements Runnable {
 		thread.setName("QPWriter"+id);
 		thread.start();
 
-		// Initialize writer是往内存中写入 现在写入到了writeResultat中
+		// Initialize writer: écrire sous buffer ici on utilise writeResultat pour écrire
 		/*try {
 			outputWriter = new BufferedWriter(new FileWriter(new File(
 					"result/query" + id + ".txt")));
@@ -97,7 +97,7 @@ public abstract class AbstractQueryProcessor implements Runnable {
 		this.latch = latch;
 	}
 
-	@Override//run函数实际是每个进程中的要进行的程序
+	@Override//run programme dans chaque process
 	public void run() {
 		logger.info("Starting query processor " + id);
 		// Notify beginning of processing
@@ -147,7 +147,7 @@ public abstract class AbstractQueryProcessor implements Runnable {
 		return new Route(pickup, dropoff);
 	}
 	
-	
+	//Récrire une nouvelle fonction pour convertir NewRecord
 	protected NewRecord convertRecordToNewRoute(DebsRecord record) {
 		NewRecord newRecord ; 
 		// the time

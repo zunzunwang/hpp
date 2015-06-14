@@ -52,7 +52,7 @@ public class MainNonStreaming {
 //		LoadFirstDispatcher dispatch = new LoadFirstDispatcher(
 //				"src/main/resources/data/sorted_data.csv");
 		LoadFirstDispatcher dispatch = new LoadFirstDispatcher(
-				"src/main/resources/data/test_02.csv");
+				"src/main/resources/data/1000Records.csv");
 		
 		
 		logger.info("Finished parsing");
@@ -101,13 +101,6 @@ public class MainNonStreaming {
 		// Output measure and ratio per query processor
 		measure.setProcessedRecords(dispatch.getRecords());
 		measure.outputMeasure();
-/*		
-		float x1=(float) -73.971138;
-		float y1=(float)40.75898;
-		float x2=(float)-73.972206;
-		float y2=(float)40.752502;
-		String l1="6BA29E9A69B10F218C1509BEDD7410C2";
-		*/
 //		DebsRecord record;
 //		record = RouteMembershipProcessor.getRecord();
 		

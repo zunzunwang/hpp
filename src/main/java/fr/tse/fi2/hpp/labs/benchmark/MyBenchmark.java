@@ -1,8 +1,9 @@
-package fr.tse.fi2.hpp.labs.main;
+package fr.tse.fi2.hpp.labs.benchmark;
 
 import fr.tse.fi2.hpp.labs.beans.DebsRecord;
 import fr.tse.fi2.hpp.labs.beans.measure.QueryProcessorMeasure;
 import fr.tse.fi2.hpp.labs.dispatcher.LoadFirstDispatcher;
+import fr.tse.fi2.hpp.labs.main.MainNonStreaming;
 import fr.tse.fi2.hpp.labs.queries.AbstractQueryProcessor;
 import fr.tse.fi2.hpp.labs.queries.impl.lab4_zunzunwang.RouteMembershipProcessor;
 import fr.tse.fi2.hpp.labs.queries.impl.lab4_zunzunwang.SimpleBloomFilter;
@@ -47,7 +48,7 @@ public class MyBenchmark {
 	
 
 	
-	@Setup//是决定在benchmark前做还是后做
+	@Setup//depends faire benchmark before or after
 	/**
 	 * 
 	 * initialise la liste des entiers pour chque iteration
@@ -74,7 +75,7 @@ public class MyBenchmark {
 			
 //			processors.add(new StupidAveragePrice(measure));
 //			processors.add(new AverageQuery(measure));
-//			processors.add(new IncrementalAverage(measure));//我们加入了不同的线程
+//			processors.add(new IncrementalAverage(measure));//on ajoute process differentes
 //			processors.add(new RouteMembershipProcessor(measure));
 			processors.add(new SimpleBloomFilter(measure));
 
@@ -105,13 +106,6 @@ public class MyBenchmark {
 			// Output measure and ratio per query processor
 			measure.setProcessedRecords(dispatch.getRecords());
 			measure.outputMeasure();
-	/*		
-			float x1=(float) -73.971138;
-			float y1=(float)40.75898;
-			float x2=(float)-73.972206;
-			float y2=(float)40.752502;
-			String l1="6BA29E9A69B10F218C1509BEDD7410C2";
-			*/
 //			recordTest= RouteMembershipProcessor.getRecord();
 			recordTest = SimpleBloomFilter.getRecord();
 			

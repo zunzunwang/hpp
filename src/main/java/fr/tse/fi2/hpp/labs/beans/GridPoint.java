@@ -42,7 +42,7 @@ public class GridPoint {
         return false;   
     }   
 	@Override   
-    // 根据 xy 计算 Name 对象的 hashCode() 返回值  
+    // récrire la fonction hashCode.  
     public int hashCode()   
     {   
 		final int prime = 233;

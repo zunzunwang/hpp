@@ -10,10 +10,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import fr.tse.fi2.hpp.labs.queries.AbstractQueryProcessor;
-
+/**
+ * 
+ * Récrire la fonction de out_put. 
+ *
+ */
 public class WriteResultat implements Runnable{
 	
-	private BufferedWriter outputWriter;//往内存中写入内容
+	private BufferedWriter outputWriter;//écrire sous buffer
 	final static Logger logger = LoggerFactory
 			.getLogger(AbstractQueryProcessor.class);
 	private int id;
