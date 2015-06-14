@@ -1,4 +1,4 @@
-
+/*
 package fr.tse.fi2.hpp.labs.queries.impl.projet;
 
 import java.util.ArrayList;
@@ -83,3 +83,4 @@ public class BenchmarksProfitableAreas {
 
 }
 
+*/

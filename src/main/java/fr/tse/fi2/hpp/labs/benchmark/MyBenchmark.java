@@ -1,3 +1,4 @@
+/*
 package fr.tse.fi2.hpp.labs.benchmark;
 
 import fr.tse.fi2.hpp.labs.beans.DebsRecord;
@@ -49,16 +50,9 @@ public class MyBenchmark {
 
 	
 	@Setup//depends faire benchmark before or after
-	/**
-	 * 
-	 * initialise la liste des entiers pour chque iteration
-	 * suivant la valeur de <code>n</code>.
-	 */
+
 	public void init(){
-		/**
-		 * @param args
-		 * @throws IOException
-		 */
+
 			// Init query time measure
 			QueryProcessorMeasure measure = new QueryProcessorMeasure();
 			// Init dispatcher and load everything
@@ -116,14 +110,7 @@ public class MyBenchmark {
 
     @Benchmark
     public void testMethod1() {
-        // This is a demo/sample template for building your JMH benchmarks. Edit as needed.
-        // Put your benchmark code here.
-    	/**
-    	 * Actualiter compte the mean of the integer in<code>this.entier</code>
-    	 * @return the lean computed as the cumulated sum of integer in <code>entiers</code>
-    	 * 
-    	 * 运行的时候是先运行 mvn clean install ensuite 
-    	 */
+
  //   	System.out.println("Route find : " + RouteMembershipProcessor.checkroute(recordTest));
     	System.out.println("Route find : " + SimpleBloomFilter.contains(recordTest));
     	
@@ -138,3 +125,5 @@ public class MyBenchmark {
         new Runner(opt).run();
     }
 }
+
+*/

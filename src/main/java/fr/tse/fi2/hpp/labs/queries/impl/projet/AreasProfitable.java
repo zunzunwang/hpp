@@ -156,11 +156,11 @@ public class AreasProfitable extends AbstractQueryProcessor {
 	{
 		while (true)
 		{
-			DebsRecord elem = list15.getFirst();
-			if (elem.getDropoff_datetime() < temps)
+			DebsRecord record = list15.getFirst();
+			if (record.getDropoff_datetime() < temps)
 			{
-				String unit = convertTounit(elem.getPickup_latitude(), elem.getPickup_longitude());
-				listAreaProfitable.get(unit).supprime(elem.getFare_amount() + elem.getTip_amount());
+				String unit = convertTounit(record.getPickup_latitude(), record.getPickup_longitude());
+				listAreaProfitable.get(unit).supprime(record.getFare_amount() + record.getTip_amount());
 				list15.removeFirst();
 			}
 			else 

@@ -46,13 +46,13 @@ public class MainNonStreaming {
 		// Init query time measure
 		QueryProcessorMeasure measure = new QueryProcessorMeasure();
 		// Init dispatcher and load everything
-//		LoadFirstDispatcher dispatch = new LoadFirstDispatcher(
-//				"src/main/resources/data/1000Records.csv");
+		LoadFirstDispatcher dispatch = new LoadFirstDispatcher(
+				"src/main/resources/data/1000Records.csv");
 		
 //		LoadFirstDispatcher dispatch = new LoadFirstDispatcher(
 //				"src/main/resources/data/sorted_data.csv");
-		LoadFirstDispatcher dispatch = new LoadFirstDispatcher(
-				"src/main/resources/data/test_02.csv");
+//		LoadFirstDispatcher dispatch = new LoadFirstDispatcher(
+//				"src/main/resources/data/test_02.csv");
 		
 		
 		logger.info("Finished parsing");
@@ -66,8 +66,8 @@ public class MainNonStreaming {
 //		processors.add(new RouteMembershipProcessor(measure));
 //		processors.add(new SimpleBloomFilter(measure));
 //		processors.add(new Query1(measure));
-//		processors.add(new RoutesFrequente(measure));
-		processors.add(new AreasProfitable(measure));
+		processors.add(new RoutesFrequente(measure));
+//		processors.add(new AreasProfitable(measure));
 
 		
 

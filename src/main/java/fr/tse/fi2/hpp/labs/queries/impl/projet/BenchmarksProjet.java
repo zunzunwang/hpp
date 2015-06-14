@@ -34,7 +34,7 @@ import fr.tse.fi2.hpp.labs.queries.AbstractQueryProcessor;
 public class BenchmarksProjet {
 
 
-	   final static Logger logger = LoggerFactory.getLogger(BenchmarksRoutesFrequente.class);
+	   final static Logger logger = LoggerFactory.getLogger(BenchmarksProjet.class);
 	   
 	    @Benchmark
 	    @BenchmarkMode(Mode.AverageTime)
