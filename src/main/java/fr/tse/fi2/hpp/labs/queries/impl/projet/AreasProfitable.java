@@ -116,6 +116,7 @@ public class AreasProfitable extends AbstractQueryProcessor {
 	     */
 	    Set<String> listLicence =new  HashSet<String>();
 	    listLicence.clear();
+	    
 	    for(int i=0;i<listDropoff.size();i++){
 	    	listLicence.add(listDropoff.get(i).getHack_license());
 	    	}
@@ -133,18 +134,26 @@ public class AreasProfitable extends AbstractQueryProcessor {
 	    			area.setNbTaxisEmpty(area.getNbTaxisEmpty()+1);
 	    			}																	
 	    		}
-	    	}			
+	    	}
+	    
 	    for(int i = 0;i<listArea.size();i++){
 	    	listArea.get(i).calculprofitability();
 	    	}	
+	    
 	    // Finir.
 	    tempsFini = System.nanoTime();
 	    delay = tempsFini - tempsCommence;
 	    
 	    // output the result.
 	    for(int i=0;i<listArea.size();i++){
+/*	    	System.out.println("[unit : " + listArea.get(i).getunit() + "]" +
+							   " [Taxis Vides : " + listArea.get(i).getNbTaxisEmpty() + "]" + 
+							   " [Median profit : " + listArea.get(i).mediane.getMediane() + "]" + 
+							   " [Profitability : "  + listArea.get(i).getProfitability() + "]" +
+							   " [Delay : " + delay + "]");
+*/							   
 	    	this.writeLine("[unit : " + listArea.get(i).getunit() + "]" +
-							   " [Taxi Empty : " + listArea.get(i).getNbTaxisEmpty() + "]" + 
+							   " [Taxis Vides : " + listArea.get(i).getNbTaxisEmpty() + "]" + 
 							   " [Median profit : " + listArea.get(i).mediane.getMediane() + "]" + 
 							   " [Profitability : "  + listArea.get(i).getProfitability() + "]" +
 							   " [Delay : " + delay + "]");
