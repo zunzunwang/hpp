@@ -143,7 +143,7 @@ public class AreasProfitable extends AbstractQueryProcessor {
 	    
 	    // output the result.
 	    for(int i=0;i<listArea.size();i++){
-	    	System.out.println("[unit : " + listArea.get(i).getunit() + "]" +
+	    	this.writeLine("[unit : " + listArea.get(i).getunit() + "]" +
 							   " [Taxi Empty : " + listArea.get(i).getNbTaxisEmpty() + "]" + 
 							   " [Median profit : " + listArea.get(i).mediane.getMediane() + "]" + 
 							   " [Profitability : "  + listArea.get(i).getProfitability() + "]" +
