@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-Global execution time 19731ms
-Query 2 runtime: 19729ms
-Query 2 throughput: 0 events/second
-=======
-Global execution time 54ms
-Query 1 runtime: 30ms
+Global execution time 116ms
+Query 1 runtime: 86ms
 Query 1 throughput: 0 events/second
->>>>>>> branch 'master' of https://github.com/zunzunwang/hpp.git
+Query 2 runtime: 47ms
+Query 2 throughput: 0 events/second
